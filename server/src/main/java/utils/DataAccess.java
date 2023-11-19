@@ -9,7 +9,7 @@ public class DataAccess {
     static int lim = 10;
 
     public DataAccess() {
-        jedis = new Jedis("192.168.234.131", 6379);
+        jedis = new Jedis("localhost", 6379);
     }
 
     public ArrayList<Double> getCpuUsages() {

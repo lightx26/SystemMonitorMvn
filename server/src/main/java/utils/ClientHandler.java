@@ -24,7 +24,7 @@ public class ClientHandler extends Thread {
     private String OSName = null;
     private String CPUModel = null;
 
-    DataAccess dataAccess;
+    // DataAccess dataAccess;
 
     public ClientHandler(Socket socket) {
         this.clientSocket = socket;
@@ -33,7 +33,7 @@ public class ClientHandler extends Thread {
     @Override
     public void run() {
         try {
-            dataAccess = new DataAccess();
+            // dataAccess = new DataAccess();
 
             MAC = GetMACAddress();
             OSName = GetOSName();
@@ -134,50 +134,23 @@ public class ClientHandler extends Thread {
 
             System.out.println("MAC: " + MAC + ": " + processes.size());
 
-            dataAccess.addCpuUsage(CPULoad);
-            dataAccess.addMemUsage(MemUsage);
+            // dataAccess.addCpuUsage(CPULoad);
+            // dataAccess.addMemUsage(MemUsage);
 
-            ArrayList<Double> cpus = dataAccess.getCpuUsages();
-            ArrayList<Long> mems = dataAccess.getMemoryUsages();
+            // ArrayList<Double> cpus = dataAccess.getCpuUsages();
+            // ArrayList<Long> mems = dataAccess.getMemoryUsages();
 
-            for (Long element : mems) {
-                System.out.println("Memory use: " + element);
-            }
-
-            for (Double element : cpus) {
-                System.out.println("CPU use: " + element);
-            }
-            // int lim = 10;
-            // // if (cpu_queue.size() < lim) {
-            // // cpu_queue.add(CPULoad);
-            // // } else {
-            // // cpu_queue.poll();
-            // // cpu_queue.add(CPULoad);
-            // // }
-
-            // if (db.llen("CPU") >= lim) {
-            // db.lpop("CPU");
+            // for (Long element : mems) {
+            // System.out.println("Memory use: " + element);
             // }
-            // db.rpush("CPU", CPULoad.toString());
 
-            // // db.del("CPU");
-            // // for (Double _cpu : cpu_queue) {
-            // // db.rpush("CPU", _cpu.toString());
-            // // }
-
-            // // for (String p : processes) {
-            // // System.out.println(p);
-            // // }
-
-            // List<String> cpus = db.lrange("CPU", 0, 9);
-
-            // // Process the retrieved elements
-            // for (String element : cpus) {
-            // System.out.println("CPU: " + element + "%");
+            // for (Double element : cpus) {
+            // System.out.println("CPU use: " + element);
             // }
 
             System.out.println("=========");
         }
+
     }
 
     private void receiveFile() {
